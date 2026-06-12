@@ -15,8 +15,9 @@ local textures = {}
 for n = 1, #skin_colors do
 	textures[n] = "petz_"..pet_name.."_"..skin_colors[n]..".png"
 end
-local p1 = {x= -0.125, y = -0.5, z = -0.25}
-local p2 = {x= 0.0625, y = 0.125, z = 0.25}
+local p1 = {x= -0.125, y = -0.5, z = -0.15}
+local p2 = {x= 0.0625, y = 0.1, z = 0.15}
+
 local collisionbox, collisionbox_baby = petz.get_collisionbox(p1, p2, scale_model, scale_baby)
 
 minetest.register_entity("petz:"..pet_name, {
@@ -32,6 +33,7 @@ minetest.register_entity("petz:"..pet_name, {
 	is_wild = false,
 	give_orders = true,
 	can_be_brushed = true,
+	can_swin = true,
 	capture_item = "lasso",
 	mutation = 1,
 	--Pony specific
@@ -41,7 +43,7 @@ minetest.register_entity("petz:"..pet_name, {
 	driver_scale = {x = 1/visual_size.x, y = 1/visual_size.y},
 	driver_attach_at = {x = -0.0325, y = -0.125, z = -0.2},
 	driver_wagon_attach_at = {x = -0.0325, y = -0.125, z = -0.625},
-	driver_eye_offset = {x = 0, y = 0, z = 0},
+	driver_eye_offset = {x = 0, y = 2.5, z = 2.75},
 	driver_wagon_eye_offset = {x = 0, y = 0, z = -20},
 	pregnant_count = 5,
 	follow = petz.settings.pony_follow,
@@ -50,7 +52,7 @@ minetest.register_entity("petz:"..pet_name, {
 	},
 	rotate = petz.settings.rotate,
 	physical = true,
-	stepheight = 0.1,	--EVIL!
+	stepheight = 1.1,
 	collide_with_objects = true,
 	collisionbox = collisionbox,
 	collisionbox_baby = collisionbox_baby,
@@ -70,7 +72,7 @@ minetest.register_entity("petz:"..pet_name, {
 	buoyancy = 0.5, -- portion of hitbox submerged
 	max_speed = 2,
 	jump_height = 1.5,
-	view_range = 10,
+	view_range = 32,
 	lung_capacity = 10, -- seconds
 	max_hp = 15,
 	makes_footstep_sound = false,
