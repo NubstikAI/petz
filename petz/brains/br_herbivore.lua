@@ -54,7 +54,7 @@ function petz.herbivore_brain(self)
 		end
 
 		if prty < 20 then
-			if self.isinliquid then
+			if self.isinliquid and not self.can_swin then
 				kitz.hq_liquid_recovery(self, 20)
 				return
 			end
