@@ -7,8 +7,8 @@ petz.register("chimp", {
 	scale_model = 2.0,
 	skin_colors = {"dark_brown"},
 	collisionbox = {
-		p1 = {x= -0.25, y = -0.5, z = -0.125},
-		p2 = {x= 0.1875, y = -0.125, z = 0.3125}
+		p1 = {x= -0.1425, y = -0.5, z = -0.07},
+		p2 = {x= 0.10, y = -0.125, z = 0.175}
 	},
 	has_affinity = true,
 	is_arboreal = true,
