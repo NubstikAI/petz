@@ -8,8 +8,8 @@ petz.register("kitty", {
 	scale_baby = 0.5,
 	skin_colors = {"brown", "black", "dark_gray", "camel", "light_gray", "siamese"},
 	collisionbox = {
-		p1 = {x= -0.0625, y = -0.5, z = -0.3125},
-		p2 = {x= 0.125, y = -0.0625, z = 0.3125}
+		p1 = {x= -0.0625, y = -0.5, z = -0.25},
+		p2 = {x= 0.125, y = -0.0625, z = 0.25}
 	},
 	has_affinity = true,
 	is_pet = true,
