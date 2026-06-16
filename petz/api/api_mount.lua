@@ -18,6 +18,7 @@ petz.mount = function(self, clicker, wielded_item, wielded_item_name)
 			kitz.clear_queue_low(self)
 			kitz.clear_queue_high(self)
 			kitz.animate(self, "still")
+			if petz.set_mount_opacity then petz.set_mount_opacity(self, 255) end
 			return false
 		elseif (self.saddle or self.saddlebag or self.wagon) and wielded_item_name == petz.settings.shears then
 			if self.wagon then
