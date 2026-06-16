@@ -92,13 +92,13 @@ function petz.lq_mountdriver(self)
 		elseif auto_drive and ctrl.sneak then
 			auto_drive = false
 		end
-		if (ctrl.up or auto_drive) and self.isonground then -- move forwards
+		if (ctrl.up or auto_drive) and (self.isonground or self.isinliquid and self.can_swin) then -- move forwards
 			velocity = velocity + (self.accel/2)
 			if ctrl.jump then
 				velo.y = velo.y + (self.jump_height)*4
 				acce_y = acce_y *1.5
 			end
-		elseif ctrl.down and self.isonground then -- move backwards
+		elseif ctrl.down and (self.isonground or self.isinliquid and self.can_swin) then -- move backwards
 			if self.max_speed_reverse == 0 and velocity == 0 then
 				return
 			end
@@ -117,7 +117,7 @@ function petz.lq_mountdriver(self)
 			return
 		end
 		--Gallop
-		if ctrl.up and ctrl.sneak and not(self.gallop_exhausted) then
+		if ctrl.up and ctrl.sneak and not(self.gallop_exhausted) and self.isonground then
 			if not self.gallop then
 				self.gallop = true
 				kitz.make_sound("object", self.object, "petz_horse_whinny", petz.settings.max_hear_distance)
@@ -153,7 +153,6 @@ function petz.lq_mountdriver(self)
 		new_acce.y = new_acce.y + acce_y
 		--minetest.chat_send_player("singleplayer", tostring(new_acce.y))
 		self.object:set_acceleration(new_acce)
-		return
 	end
 	kitz.queue_low(self, func)
 end
