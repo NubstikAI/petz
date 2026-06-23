@@ -259,7 +259,7 @@ function petz.lq_climb_down(self)
 			local node_below_name, below_pos, node_below = petz.node_name_in(self, "below")
 
 			if petz.is_tree_like(node_below) then
-				if not node_front_below.walkable then
+				if node_front_below and not node_front_below.walkable then
 					local pos_below = { x = math.floor(pos.x + 0.5), y = pos.y - 1, z = math.floor(pos.z + 0.5) }
 					local pos_front_below = { x = math.floor(pos.x + dir_x + 0.5), y = pos.y + 0.5, z = math.floor(pos.z + dir_z + 0.5) }
 
