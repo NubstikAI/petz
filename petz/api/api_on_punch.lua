@@ -67,10 +67,12 @@ function petz.on_punch(self, puncher, time_from_last_punch, tool_capabilities, d
 	local puncher_is_player = petz.puncher_is_player(puncher)
 	if puncher_is_player then --player
 		if self.dreamcatcher and self.owner ~= puncher:get_player_name() then --The dreamcatcher protects the petz
+			if self.driver then self.driver:punch(puncher, time_from_last_punch, tool_capabilities, dir) end
 			return
 		end
 	else --no player
 		if self.dreamcatcher then
+			if self.driver then self.driver:punch(puncher, time_from_last_punch, tool_capabilities, dir) end
 			return
 		end
 	end
